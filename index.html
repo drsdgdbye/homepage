@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evgeny Romanenko's Home Page</title>
+    <style>
+        body {
+            background-color: #008080;
+            font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
+            font-size: 14px;
+            color: #000000;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .window {
+            background-color: #c0c0c0;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            box-shadow: 1px 1px 0 #000000;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .title-bar {
+            background: linear-gradient(90deg, #000080, #1084d0);
+            color: #ffffff;
+            font-weight: bold;
+            padding: 3px 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title-bar-buttons {
+            display: flex;
+            gap: 2px;
+        }
+
+        .title-bar-button {
+            width: 16px;
+            height: 14px;
+            background: #c0c0c0;
+            border: 1px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            font-size: 10px;
+            line-height: 12px;
+            text-align: center;
+            font-family: 'Marlett', sans-serif;
+        }
+
+        .window-content {
+            padding: 15px;
+        }
+
+        .inset {
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            background: #ffffff;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .outset {
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            background: #c0c0c0;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 28px;
+            color: #000080;
+            margin: 0 0 5px 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            color: #800000;
+            margin: 15px 0 10px 0;
+            border-bottom: 1px solid #808080;
+            padding-bottom: 3px;
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000080;
+            margin: 10px 0 5px 0;
+        }
+
+        p {
+            margin: 8px 0;
+            line-height: 1.4;
+        }
+
+        a {
+            color: #0000ff;
+        }
+
+        a:visited {
+            color: #800080;
+        }
+
+        a:hover {
+            color: #ff0000;
+        }
+
+        .marquee-container {
+            background: #000080;
+            color: #ffff00;
+            padding: 5px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .marquee {
+            animation: marquee 15s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .hr-fancy {
+            height: 2px;
+            background: linear-gradient(90deg, #c0c0c0, #000080, #c0c0c0);
+            border: none;
+            margin: 15px 0;
+        }
+
+        table.projects {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+        }
+
+        table.projects th {
+            background: #000080;
+            color: #ffffff;
+            padding: 5px 8px;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        table.projects td {
+            border: 1px solid #808080;
+            padding: 8px 12px;
+            vertical-align: top;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-card {
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            background: #ffffff;
+            padding: 10px;
+        }
+
+        .project-card h3 {
+            margin: 0 0 5px 0;
+            border-bottom: 1px solid #c0c0c0;
+            padding-bottom: 5px;
+        }
+
+        .project-card .tech {
+            font-size: 11px;
+            color: #808080;
+            margin-top: 8px;
+        }
+
+        table.projects tr:nth-child(even) {
+            background: #e0e0e0;
+        }
+
+        .button {
+            background: #c0c0c0;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            padding: 4px 15px;
+            font-family: 'MS Sans Serif', Tahoma, sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #000000;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .button:hover {
+            background: #d4d4d4;
+        }
+
+        .button:active {
+            border-color: #808080 #ffffff #ffffff #808080;
+        }
+
+        .skills-list {
+            columns: 2;
+            column-gap: 20px;
+        }
+
+        .skills-list li {
+            margin-bottom: 3px;
+        }
+
+        ul {
+            margin: 5px 0;
+            padding-left: 25px;
+        }
+
+        .email-icon {
+            font-size: 20px;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .badge {
+            border: 1px solid #808080;
+            padding: 3px 8px;
+            background: #ffffcc;
+            font-size: 11px;
+        }
+
+        .counter {
+            font-family: 'Courier New', monospace;
+            background: #000000;
+            color: #00ff00;
+            padding: 2px 8px;
+            border: 2px inset #808080;
+        }
+
+        .status-bar {
+            background: #c0c0c0;
+            border-top: 1px solid #ffffff;
+            padding: 3px 5px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .status-bar div {
+            border: 1px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 1px 5px;
+        }
+
+        .construction {
+            color: #ff0000;
+            font-weight: bold;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .photo-frame {
+            border: 3px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 5px;
+            background: #c0c0c0;
+            display: inline-block;
+        }
+
+        .ascii-art {
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            line-height: 1.1;
+            white-space: pre;
+            color: #000080;
+        }
+
+        .guestbook {
+            background: #ffffcc;
+            border: 1px dashed #808080;
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 11px;
+            color: #808080;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span>Evgeny Romanenko's Home Page - Microsoft Internet Explorer</span>
+            <div class="title-bar-buttons">
+                <div class="title-bar-button">_</div>
+                <div class="title-bar-button">[]</div>
+                <div class="title-bar-button">X</div>
+            </div>
+        </div>
+
+        <div class="window-content">
+            <div class="marquee-container">
+                <div class="marquee">*** Welcome to my Home Page! *** Tich Apps Development *** Java * Scala * Go * Kafka * PostgreSQL * libGDX *** Last updated: August 2026 ***</div>
+            </div>
+
+            <div class="inset">
+                <table width="100%"><tr>
+                    <td width="170" valign="top">
+                        <div class="photo-frame">
+                            <img src="photo.jpg" width="150" height="210" alt="Evgeny Romanenko">
+                        </div>
+                    </td>
+                    <td valign="middle">
+                        <h1 style="text-align:left;margin-bottom:10px;">Evgeny Romanenko</h1>
+                        <p style="margin:0;"><em>Software Developer</em></p>
+                        <p style="margin:5px 0 0 0;font-size:12px;color:#808080;">Tich Apps Development · Moscow · Building software since 2016</p>
+                    </td>
+                </tr></table>
+            </div>
+
+            <hr class="hr-fancy">
+
+            <h2>About Me</h2>
+            <div class="outset">
+                <p>Hello and welcome to my corner of the World Wide Web!</p>
+                <p>I am a <b>Software Developer</b> at <b>Tich Apps Development</b>. I mostly live in the JVM world, writing <b>Java</b> and <b>Scala</b> code that handles real data, streams and events.</p>
+                <p>I enjoy building <b>event-driven systems</b> with <b>Kafka</b> and <b>SSE</b>, keeping things simple and typed with <b>ZIO</b> and <b>tapir</b>, scratching pixels with <b>libGDX</b> and <b>Swing</b>, and occasionally hanging out in <b>Go</b>.</p>
+            </div>
+
+            <div class="badge-row">
+                <span class="badge">Java</span>
+                <span class="badge">Scala / ZIO</span>
+                <span class="badge">Go</span>
+                <span class="badge">Kafka</span>
+                <span class="badge">PostgreSQL</span>
+                <span class="badge">libGDX</span>
+            </div>
+
+            <hr class="hr-fancy">
+
+            <h2>My Projects</h2>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><a href="https://github.com/drsdgdbye/calorie-ledger">Calorie Ledger</a> <small>— Web App</small></h3>
+                    <p>Calorie and nutrition calculator for composite dishes. Create products with per-100g nutrition and combine them into recipes — values are always recalculated live, nothing stays stale.</p>
+                    <div class="tech">Scala 3 · ZIO 2 · tapir · Quill · PostgreSQL · Vanilla JS</div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="https://github.com/drsdgdbye/star-game">Star Game</a> <small>— 2D Space Shooter</small></h3>
+                    <p>Fly a starfighter, dodge and destroy waves of enemy ships while keeping your health and score up. Multi-module Gradle project sharing game logic between desktop and Android.</p>
+                    <div class="tech">Java · libGDX · Gradle (multi-module)</div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="https://github.com/drsdgdbye/catch-pucca-game">Catch Pucca Game</a> <small>— Mini Game</small></h3>
+                    <p>A tiny mouse-chasing game in pure Java Swing. Catch Pucca before she escapes — but beware: for the first 5 seconds after she moves, she dodges and clicks don't register.</p>
+                    <div class="tech">Java · Swing</div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="https://github.com/drsdgdbye/open-vote-app">Open Vote App</a> <small>— Civic Tech</small></h3>
+                    <p>App for monitoring elections of deputies of the State Duma of Russia, regional and local elections. Check candidates and vote in parallel to build your own voting statistics.</p>
+                    <div class="tech">Java · REST API</div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="https://github.com/drsdgdbye/yt_dw">yt_dw</a> <small>— YouTube Downloader</small></h3>
+                    <p>A no-nonsense YouTube downloader written in Go. Small, fast, and to the point.</p>
+                    <div class="tech">Go</div>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="https://github.com/drsdgdbye/aTES">aTES</a> <small>— Event-Driven System</small></h3>
+                    <p>Awesome Task Exchange System. An event-driven playground for tasks and messaging, alongside Kafka over SSE and streaming demos.</p>
+                    <div class="tech">Scala · Kafka · SSE · Event-Driven</div>
+                </div>
+            </div>
+
+            <hr class="hr-fancy">
+
+            <h2>Technical Skills</h2>
+            <div class="inset">
+                <table width="100%">
+                    <tr valign="top">
+                        <td width="25%">
+                            <h3>Languages</h3>
+                            <ul>
+                                <li>Java 8+</li>
+                                <li>Scala 2 / Scala 3</li>
+                                <li>Go</li>
+                            </ul>
+                        </td>
+                        <td width="25%">
+                            <h3>Frameworks</h3>
+                            <ul>
+                                <li>Spring ecosystem</li>
+                                <li>ZIO ecosystem</li>
+                                <li>Akka (Pekko) ecosystem</li>
+                                <li>Cats / Cats Effect</li>
+                            </ul>
+                        </td>
+                        <td width="25%">
+                            <h3>Data &amp; Messaging</h3>
+                            <ul>
+                                <li>PostgreSQL</li>
+                                <li>ClickHouse</li>
+                                <li>Redis</li>
+                                <li>Kafka</li>
+                                <li>MySQL</li>
+                                <li>MongoDB</li>
+                            </ul>
+                        </td>
+                        <td width="25%">
+                            <h3>Tools</h3>
+                            <ul>
+                                <li>Maven / Gradle / sbt</li>
+                                <li>Docker</li>
+                                <li>Git / GitHub / GitLab</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <hr class="hr-fancy">
+
+            <h2>Contact Me</h2>
+            <div class="guestbook">
+                <p><span class="email-icon">&#9993;</span> Feel free to reach out!</p>
+                <p>
+                    <a href="https://github.com/drsdgdbye" class="button">GitHub</a>
+                    <a href="https://www.linkedin.com/in/drsdgdbye/" class="button">LinkedIn</a>
+                    <a href="https://t.me/drsdgdbye" class="button">Telegram</a>
+                </p>
+            </div>
+
+            <hr class="hr-fancy">
+
+            <div class="center">
+                <p>You are visitor number: <span class="counter">000,052</span></p>
+                <p><small>Best viewed with <b>Netscape Navigator 4.0</b> or <b>Internet Explorer 5.0</b> at 800x600</small></p>
+                <p>
+                    <span class="badge">Made with Notepad</span>
+                    <span class="badge">HTML 4.0 Compliant</span>
+                    <span class="badge">Y2K Ready!</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <div>Done</div>
+            <div>Internet zone</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 1997-2026 Evgeny Romanenko. All Rights Reserved.</p>
+        <p>This page is perpetually under construction <span class="construction">***</span></p>
+    </footer>
+</body>
+</html>
